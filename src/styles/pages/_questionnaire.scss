@@ -1,0 +1,272 @@
+$c-carousel-indicator-width: 10px !default;
+$c-carousel-indicator-height: 10px !default;
+$c-carousel-indicator-hit-area-height: 10px !default;
+$c-carousel-indicator-spacer: 3px !default;
+$c-carousel-indicator-active-bg: theme-color('primary') !default;
+$c-carousel-indicator-non-active-bg: #d8d8d8 !default;
+$c-carousel-indicator-transition: background-color 0.6s ease !default;
+
+$c-carousel-transition-duration: 0.6s !default;
+$c-carousel-transition: transform $c-carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+
+// Notes on the classes:
+//
+// 1. .c-carousel.pointer-event should ideally be pan-y (to allow for users to scroll vertically)
+//    even when their scroll action started on a c-carousel, but for compatibility (with Firefox)
+//    we're preventing all actions instead
+// 2. The .c-carousel-item-left and .c-carousel-item-right is used to indicate where
+//    the active slide is heading.
+// 3. .active.c-carousel-item is the current slide.
+// 4. .active.c-carousel-item-left and .active.c-carousel-item-right is the current
+//    slide in its in-transition state. Only one of these occurs at a time.
+// 5. .c-carousel-item-next.c-carousel-item-left and .c-carousel-item-prev.c-carousel-item-right
+//    is the upcoming slide in transition.
+
+.c-carousel {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.c-carousel.pointer-event {
+  touch-action: pan-y;
+}
+
+.c-carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  @include clearfix();
+}
+
+.c-carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  backface-visibility: hidden;
+  @include transition($c-carousel-transition);
+}
+
+.c-carousel-item.active,
+.c-carousel-item-next,
+.c-carousel-item-prev {
+  display: block;
+}
+
+.c-carousel-item-next:not(.c-carousel-item-left),
+.active.c-carousel-item-right {
+  transform: translateX(100%);
+}
+
+.c-carousel-item-prev:not(.c-carousel-item-right),
+.active.c-carousel-item-left {
+  transform: translateX(-100%);
+}
+
+//
+// Alternate transitions
+//
+
+.c-carousel-fade {
+  .c-carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+  }
+
+  .c-carousel-item.active,
+  .c-carousel-item-next.c-carousel-item-left,
+  .c-carousel-item-prev.c-carousel-item-right {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .active.c-carousel-item-left,
+  .active.c-carousel-item-right {
+    z-index: 0;
+    opacity: 0;
+    @include transition(opacity 0s $c-carousel-transition-duration);
+  }
+}
+
+//
+// Left/right controls for nav
+//
+
+.c-carousel-control-prev,
+.c-carousel-control-next {
+  position: absolute;
+  bottom: 0;
+}
+
+.c-carousel-control-next {
+  left: 51%;
+}
+
+.c-carousel-control-prev {
+  right: 51%;
+}
+
+// Optional indicator pips
+//
+// Add an ordered list with the following class and add a list item for each
+// slide your c-carousel holds.
+
+.c-carousel-indicators {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0; // override <ol> default
+  list-style: none;
+
+  li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: $c-carousel-indicator-width;
+    height: $c-carousel-indicator-height;
+    border-radius: 100%;
+    margin-right: $c-carousel-indicator-spacer;
+    margin-left: $c-carousel-indicator-spacer;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: $c-carousel-indicator-non-active-bg;
+    background-clip: padding-box;
+    // Use transparent borders to increase the hit area by 10px on top and bottom.
+    border-top: $c-carousel-indicator-hit-area-height solid transparent;
+    border-bottom: $c-carousel-indicator-hit-area-height solid transparent;
+    @include transition($c-carousel-indicator-transition);
+  }
+
+  .active {
+    background-color: $c-carousel-indicator-active-bg;
+  }
+}
+
+// Non-Bootstrap
+
+.questionnaire-row {
+  min-height: $full-height;
+}
+
+.questionnaire-left {
+  background-color: lighten(theme-color('primary'), 15%);
+}
+
+.questionnaire-right {
+  @include media-breakpoint-down(md) {
+    margin-bottom: 5rem;
+  }
+}
+
+.questionnaire-step-counter {
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.question-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1.175;
+  }
+}
+
+.multipleChoice-btn {
+  padding: 15px 70px;
+  cursor: pointer;
+  background-color: lighten(theme-color('primary'), 10%);
+  border: none;
+  border-radius: 95px;
+  font-size: 16px;
+  line-height: 1.25;
+  position: relative;
+  display: block;
+  text-align: left;
+  width: 100%;
+  color: #fff;
+  transition: background-color 0.6s ease;
+
+  @include media-breakpoint-down(xs) {
+    padding: 10px 15px 10px 45px;
+  }
+
+  &.active {
+    background: theme-color('primary');
+  }
+
+  &:hover,
+  &:focus {
+    background: theme-color('primary');
+    outline: none;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+
+  // fake radio button
+  &::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border: 1px solid #c6c6c6;
+    border-radius: 100%;
+    background: #fff;
+    pointer-events: none;
+  }
+
+  // fake radio button inside
+  &::after {
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.active::after,
+  &:hover::after,
+  &:focus::after {
+    width: 20px;
+    height: 20px;
+    background: theme-color('primary');
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    transition: opacity 0.6s ease;
+    opacity: 1;
+  }
+}
+
+// Tips
+.tips-image {
+  text-align: center;
+  padding: 1rem;
+
+  img {
+    max-height: 30rem;
+  }
+}
+
+.tips-copy {
+  padding: 1.5rem;
+}
+
+.tips-copy__title {
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin: 0;
+}

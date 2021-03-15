@@ -1,0 +1,38 @@
+.hero-row-reverse-mobile {
+  @include media-breakpoint-down(md) {
+    flex-direction: column-reverse;
+  }
+}
+
+.fancy-text {
+  background: linear-gradient(
+    90deg,
+    rgba(239, 101, 132, 0.98) 0%,
+    rgba(61, 158, 103, 0.91) 76%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fancy-bg {
+  background: linear-gradient(49deg, #3d9e67, #ef6584);
+  background-size: 400% 400%;
+  animation: gradientAnimation 30s ease infinite;
+}
+
+.darkgreen-bg {
+  background-color: #006400;
+  background-size: 400% 400%;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}

@@ -1,0 +1,145 @@
+.success-hero {
+  text-align: center;
+}
+
+.success-text {
+  justify-content: center;
+  margin-bottom: 3em;
+  text-align: center;
+}
+
+.success-score-text {
+  justify-content: center;
+  margin-bottom: 12em;
+  display: flex;
+  color: white;
+  border-style: solid #3d9e67 2px;
+  background-color: #3d9e67;
+  text-transform: capitalize;
+  text-align: center;
+  align-items: center;
+}
+
+.score-p {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.success-points {
+  margin-bottom: 3em;
+  margin-top: 6em;
+  justify-content: center;
+  justify-items: normal;
+  height: 80px;
+  width: 250px;
+  border: solid #3d9e67 4px;
+  border-radius: 2px;
+}
+
+.card-points {
+  border-radius: 2px;
+}
+
+.tips-text {
+  margin-bottom: 3em;
+  margin-top: 8em;
+  border-radius: 1rem;
+}
+
+.score-carousel {
+  width: auto;
+  height: 250px;
+  margin-bottom: 3em;
+}
+
+.card-section {
+  background-color: transparent;
+}
+
+.card-header button {
+  background-color: #3d9e67;
+  color: white;
+}
+
+.accordion-section {
+  font-weight: 900;
+  font-variant-caps: normal;
+  width: inherit;
+  justify-content: center;
+  text-align: center;
+}
+
+.accordion-tips {
+  text-align: left;
+}
+
+.success-score-banner {
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  text-align: center;
+
+  &:hover {
+    color: white; // bootstrap override
+  }
+
+  p {
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.success-points {
+  margin-bottom: 3em;
+  margin-top: 6em;
+  justify-content: center;
+  justify-items: normal;
+  height: 80px;
+  width: 250px;
+  border: solid black 4px;
+  border-radius: 2px;
+}
+
+.success-score-box {
+  max-width: 400px;
+  border: 1px solid theme-color('primary');
+  color: theme-color('primary');
+  margin: 0 auto;
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  p {
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.tips-text {
+  margin-bottom: 3em;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.score-carousel {
+  width: auto;
+  height: 250px;
+  margin-bottom: 3em;
+}
+
+.card-section {
+  background-color: transparent;
+}

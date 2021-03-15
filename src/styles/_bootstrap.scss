@@ -1,0 +1,77 @@
+// Variables
+$theme-colors: (
+  'primary': #3d9e67,
+  'dark': #19191b,
+  'secondary': #696871,
+  'pink': #ef6584,
+);
+
+@import '~bootstrap/scss/bootstrap';
+
+// Bootstrap components
+.display-4 {
+  line-height: 0.98;
+
+  @include media-breakpoint-down(md) {
+    font-size: 2.25rem;
+  }
+}
+
+.nav-bar-logo {
+  width: 150px;
+}
+
+.nav-link {
+  transition: color 0.1s, background-color 0.1s;
+  position: relative;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: theme-color('primary') !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+
+    // Remove bootstrap padding and change for margin for smaller underline
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background-color: theme-color('primary');
+      transform-origin: center top;
+      transform: scale(0, 1);
+      transition: color 0.1s, transform 0.2s ease-out;
+    }
+
+    &:hover::before,
+    &:focus::before,
+    &.active::before {
+      transform-origin: center top;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.btn {
+  border-radius: 50px;
+  font-weight: 600;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  border: none;
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    background-color: lighten(theme-color('primary'), 5%);
+  }
+}
