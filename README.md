@@ -1,7 +1,7 @@
-# Fall-2020-DIG
- Live Demo: [https://fall2020-dream-in-green.netlify.app/](https://fall2020-dream-in-green.netlify.app/)
+# Spring-2021-DIG
+ Live Demo: [https://spring2021-dream-in-green.netlify.app/](https://spring2021-dream-in-green.netlify.app/)
 
-Fall 2020 Dream In Green Project
+Spring 2021 Dream In Green Project
 
 ## Team:
 ADD CURRENT SPRING TEAM HERE
