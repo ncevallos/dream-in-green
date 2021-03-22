@@ -19,7 +19,7 @@ const LearnInformationRow = () => {
         </div>
       </div>
       <div className='image-container'>
-        <div className='image improve' />
+        <div className='image food' />
         <div className='title'>Food</div>
         <div className='text'>
           Improve your emissions by constantly using the app!

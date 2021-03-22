@@ -7,14 +7,14 @@ const LearnInformationRow = () => {
         <div className='image shopping' />
         <div className='title'>Shopping</div>
         <div className='text'>
-          Learn how to better yourself and lower your emotions
+          Learn how shopping affects the environment.
         </div>
       </div>
       <div className='image-container'>
-        <div className='image learn' />
+        <div className='image clothing' />
         <div className='title'>Clothing</div>
         <div className='text'>
-          Learn how to better yourself and lower your emissions.
+          Learn how apparel production affects the environment. 
         </div>
       </div>
       </div>

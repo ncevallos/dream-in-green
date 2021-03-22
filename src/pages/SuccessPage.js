@@ -102,6 +102,29 @@ const SuccessPage = () => {
             </Card.Body>
           </Accordion.Collapse>
         </Card>
+        <Card className='accordion-section'>
+          <Accordion.Toggle as={Card.Header} eventKey='3'>
+            <h5>Shopping Tips</h5>
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey='3' className='accordion-tips'>
+            <Card.Body>
+              <h6>🍃 Reduce buying brand new clothes</h6>
+              <p>
+                Thrifting is a great way to help the environment. 
+                It helps reduce the amount of clothing that ends up in landfills.
+              </p>
+            </Card.Body>
+          </Accordion.Collapse>
+          <Accordion.Collapse eventKey='3' className='accordion-tips'>
+            <Card.Body>
+              <h6>🍃 Consider buying refurbished or recycled products</h6>
+              <p>
+                This means you are getting a like-new product.
+                Which will reduce carbon emissions during production. {' '}
+              </p>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
       </Accordion>
     </div>
   );

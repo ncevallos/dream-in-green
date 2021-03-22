@@ -9,7 +9,7 @@ const Tips = () => {
     <div className='tips-page-container'>
       <div className='jumbotron jumbotron-fluid tips-jumbotron darkgreen-bg'>
         <div className='container'>
-          <h1 className='display-4 text-center'>Learn</h1>
+          <h1 className='display-4 text-center'>Topics</h1>
           <p>
             Your carbon footprint is the total amount of greehouse gas emissions
             that come from the production (or use) of a product or service.
