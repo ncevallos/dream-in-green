@@ -31,7 +31,7 @@ const Tips = () => {
           </Accordion.Toggle>
           <Accordion.Collapse eventKey='0' className='accordion-tips'>
             <Card.Body>
-              <h6>🍃 Switch lights off!Driving less will reduce the amount of CO2 emitted and it will lessen traffic congestion. 
+              <h6>🍃 Switch lights off! Driving less will reduce the amount of CO2 emitted and it will lessen traffic congestion. 
 				Consider taking public transportation, carpooling or riding a bike to your destination.</h6>
             </Card.Body>
           </Accordion.Collapse>
