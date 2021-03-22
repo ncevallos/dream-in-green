@@ -22,7 +22,7 @@ const LearnInformationRow = () => {
         <div className='image food' />
         <div className='title'>Food</div>
         <div className='text'>
-          Learn about the potential foods you consume that can affect the environment.
+          Learn about the foods you consume that can affect the environment.
         </div>
       </div>
       </div>
