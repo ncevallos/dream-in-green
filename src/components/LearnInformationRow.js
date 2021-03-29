@@ -8,7 +8,7 @@ const LearnInformationRow = () => {
         <div className='image transportaion' />
         <div className='title'>Transportation</div>
         <div className='text'>
-          Monitor your progress over time all in the app.
+          Learn about how you chose to travel.
         </div>
       </div>
       <div className='image-container'>
@@ -22,7 +22,7 @@ const LearnInformationRow = () => {
         <div className='image food' />
         <div className='title'>Food</div>
         <div className='text'>
-          Improve your emissions by constantly using the app!
+          Learn about the foods you consume that can affect the environment.
         </div>
       </div>
       </div>
