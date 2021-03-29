@@ -3,6 +3,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import LearnInformationRow from '../components/LearnInformationRow';
 import LearnInformationSecondRow from '../components/LearnInformationSecondRow';
 import Card from 'react-bootstrap/Card';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const Tips = () => {
   return (
@@ -21,6 +23,40 @@ const Tips = () => {
       </div>
       <LearnInformationRow />
       <LearnInformationSecondRow />
+      <Popup
+        trigger={<button className="button"> Open Modal </button>}
+        modal
+        nested
+      >
+        {close => (
+          <div className="modal" style={{position:"inherit", display:"inherit"}} >
+            <button className="close" onClick={close}>
+              &times;
+            </button>
+            <div className="header"> Modal Title </div>
+            <div className="content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
+              Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
+              delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
+              commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
+              explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+            </div>
+            <div className="actions">
+              <button
+                className="button"
+                onClick={() => {
+                  console.log('modal closed ');
+                  close();
+                }}
+              >
+                close modal
+              </button>
+            </div>
+          </div>
+        )}
+      </Popup>
       <div className='tips-text'>
         <h1 className='display-4 font-weight-bold mb-3'>Check out these Tips</h1>
       </div>
