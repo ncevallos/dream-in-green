@@ -4,13 +4,26 @@ import Carousel from 'react-bootstrap/Carousel';
 import TipsContainer from '../components/TipsContainer';
 import { useAuth } from '../states/userState';
 import { buildAnswers } from '../utils';
+import firebase from 'firebase/app';
+import 'firebase/storage';
 import questions from '../assets/questions';
 
 const Questionnaire = () => {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState({});
+  const [questions, setQuestions] = useState( () => {
+    console.log('hit');
+    firebase.storage().ref('questions/questions.js').getDownloadURL()
+    .then(questionsURL => {
+      console.log(typeof(questionsURL));
+      setQuestions(questionsURL);
+    }).catch(error => {
+      console.log('error questions ' + error);
+    })
+  });
   let history = useHistory();
   const { user, addScoreToDb } = useAuth();
+
 
   const handleFinish = async () => {
     let total = 0;

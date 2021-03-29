@@ -5,12 +5,11 @@ import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import { useAuth } from '../states/userState';
 import nicknames from '../assets/nicknames';
-import defaultProfileImage from '../images/default-profile-img.jpg';
-import firebase from 'firebase/app';
+
 import 'firebase/storage';
 
 const Profile = () => {
-  const { logout, user, usersCollection } = useAuth();
+  const { logout, user, usersCollection, profilePic, uploadProfilePic } = useAuth();
   const redirect = useHistory();
 
   const [name, setName] = useState('');
@@ -19,15 +18,11 @@ const Profile = () => {
   const [avg, setAvg] = useState(0);
   const [scores, setScores] = useState(null);
   const [cuteName, setCuteName] = useState('');
-  const [profilePic, setProfilePic] = useState(defaultProfileImage);
 
   function handleLogOut() {
     logout();
     redirect.push('/');
   }
-
-
-
 
   useEffect(() => {
   
@@ -68,38 +63,8 @@ const Profile = () => {
         setName(doc.data().firstName + ' ' + doc.data().lastName);
         setSchool(doc.data().school);
         
-        downloadProfilePic();
-        
-
       });
   }, []);
-
- //Uploads the file to the firebase 
-   const onSubmit = (file) => {
-    /*
-      The ref() parameter is what we are setting the path of the users profile picture in our firebase bucket
-    */
-    firebase.storage().ref('users/'+user.uid + '/profile.jpg').put(file.target.files[0]).then( () => {
-      console.log("Successfully uploaded image")
-    }).catch(error => {
-      console.log("Error uploading image: " + error);
-    });
-
-    setProfilePic(URL.createObjectURL(file.target.files[0]));
-  }
-
-  //Downloads the profile picture in our firebase bucket and sets the state of profilePic to it
-  const downloadProfilePic = () => {
-    firebase.storage().ref('users/'+user.uid + '/profile.jpg').getDownloadURL()
-    .then(imgURL => {
-      console.log("successfully downloaded profile picture");
-      setProfilePic(imgURL);
-    }).catch(error => {
-      console.log('error img ' + error);
-      setProfilePic(defaultProfileImage);
-    })
-
-  }
 
   const month = [
     'January',
@@ -147,7 +112,7 @@ const Profile = () => {
             </div>
             <input 
               type='file' 
-              onChange={onSubmit}
+              onChange={uploadProfilePic}
             />
             <h3 className='mt-2 mb-3 text-primary'>{name}</h3>
             <h5 className='mt-2 mb-3 text-primary'>Current Level: {cuteName}</h5>

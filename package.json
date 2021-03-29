@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "browser-image-compression": "^1.0.14",
     "emailjs-com": "^2.6.4",
     "firebase": "^8.0.1",
     "rc-slider": "^9.6.1",

@@ -3,14 +3,16 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBWBwCa9Yu8pWtvFGAUurXcdLtYSjW1n7s",
-  authDomain: "dream-in-green.firebaseapp.com",
-  databaseURL: "https://dream-in-green.firebaseio.com",
-  projectId: "dream-in-green",
-  storageBucket: "dream-in-green.appspot.com",
-  messagingSenderId: "700392683631",
-  appId: "1:700392683631:web:2b5368d6991c9dba95b59a"
+  apiKey: "AIzaSyDjMv0ujFxY0Cfei8vM3czVFPPy4f0QQQo",
+  authDomain: "sparkdev-app.firebaseapp.com",
+  projectId: "sparkdev-app",
+  databaseURL: "https://sparkdev-app.firebaseio.com",
+  storageBucket: "sparkdev-app.appspot.com",
+  messagingSenderId: "1064506679967",
+  appId: "1:1064506679967:web:08407ff09b1c208cc2f8aa",
+  measurementId: "G-8G9ZBF1FD8"
 };
 // Initialize Firebase
 
