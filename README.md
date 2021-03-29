@@ -21,6 +21,7 @@ Builds the app for production.
 - [Firebase](https://firebase.google.com/)
 - [Netlify](https://www.netlify.com/)
 - [emailJS](https://www.emailjs.com/)
+- [browser-image-compression](https://www.npmjs.com/package/browser-image-compression)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
