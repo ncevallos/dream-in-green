@@ -8,79 +8,83 @@
 }
 
 .row-container {
-  display: flex;
-  flex-direction: column;
-
-  @include media-breakpoint-down(sm) {
-    align-items: center;
-  }
-
-  @include media-breakpoint-up(md) {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .image-container {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
 
     @include media-breakpoint-down(sm) {
-      &:not(:last-child) {
-        margin-bottom: 5rem;
-      }
+        align-items: center;
     }
 
-    .image {
-      width: 206px;
-      height: 168px;
-      background-repeat: no-repeat;
-
-      &.monitor {
-        background-image: url('/images/nature_on_screen.svg');
-      }
-
-      &.learn {
-        background-image: url('/images/book_love.svg');
-      }
-
-      &.improve {
-        background-image: url('/images/superhero.svg');
-      }
-
-      &.transportation {
-        background-image: url('/images/learn_transportation.svg');
-      }
-
-      &.household {
-        background-image: url('/images/learn_household.svg'); 
-      }
-
-      &.shopping {
-        background-image: url('/images/learn_shopping.svg');
-      }
-
-      &.food {
-        background-image: url('/images/learn_food.svg');
-      }
-
-      &.clothing{
-        background-image: url('/images/learn_clothing.svg')
-      }
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+        justify-content: space-around;
     }
 
-    .title {
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 36px;
-      text-align: center;
+    .image-container:hover {
+        box-shadow: 0 0 20px rgba(33,33,33,.2);
     }
 
-    .text {
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 24px;
-      text-align: center;
+    .image-container {
+        width: 200px;
+
+        @include media-breakpoint-down(sm) {
+            &:not(:last-child) {
+                margin-bottom: 5rem;
+            }
+        }
+
+        .image {
+            width: 206px;
+            height: 168px;
+            background-repeat: no-repeat;
+
+            &.monitor {
+                background-image: url('/images/nature_on_screen.svg');
+            }
+
+            &.learn {
+                background-image: url('/images/book_love.svg');
+            }
+
+            &.improve {
+                background-image: url('/images/superhero.svg');
+            }
+
+            &.transportation {
+                background-image: url('/images/learn_transportation.svg');
+            }
+
+            &.household {
+                background-image: url('/images/learn_household.svg');
+            }
+
+            &.shopping {
+                background-image: url('/images/learn_shopping.svg');
+            }
+
+            &.food {
+                background-image: url('/images/learn_food.svg');
+            }
+
+            &.clothing {
+                background-image: url('/images/learn_clothing.svg')
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: center;
+        }
+
+        .text {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+        }
     }
-  }
 }
 
 // Custom Components
