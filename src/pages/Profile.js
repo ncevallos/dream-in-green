@@ -6,11 +6,11 @@ import Table from 'react-bootstrap/Table';
 import { useAuth } from '../states/userState';
 import nicknames from '../assets/nicknames';
 
-import 'firebase/storage';
 
 const Profile = () => {
   const { logout, user, usersCollection, profilePic, uploadProfilePic } = useAuth();
   const redirect = useHistory();
+
 
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
