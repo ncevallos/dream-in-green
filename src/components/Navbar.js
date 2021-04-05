@@ -29,7 +29,7 @@ const NavBar = () => {
   }, [location]);
 
   return (
-    <Navbar expand='lg'>
+    <Navbar expand='lg' sticky='top'>
       <div className='container'>
         <Navbar.Brand as={Link} to='/' onClick={() => setActiveKey(0)}>
           <img
