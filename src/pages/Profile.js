@@ -7,6 +7,7 @@ import { useAuth } from '../states/userState';
 import nicknames from '../assets/nicknames';
 
 
+
 const Profile = () => {
   const { logout, user, usersCollection, profilePic, uploadProfilePic } = useAuth();
   const redirect = useHistory();
@@ -111,7 +112,8 @@ const Profile = () => {
             />
             </div>
             <input 
-              type='file' 
+              type='file'
+              className='mt-2 mb-3 text-primary'
               onChange={uploadProfilePic}
             />
             <h3 className='mt-2 mb-3 text-primary'>{name}</h3>
