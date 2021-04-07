@@ -8,7 +8,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyDjMv0ujFxY0Cfei8vM3czVFPPy4f0QQQo",
   authDomain: "sparkdev-app.firebaseapp.com",
   projectId: "sparkdev-app",
-  databaseURL: "https://sparkdev-app.firebaseio.com",
+  databaseURL: "https://sparkdev-app-default-rtdb.firebaseio.com/",
   storageBucket: "sparkdev-app.appspot.com",
   messagingSenderId: "1064506679967",
   appId: "1:1064506679967:web:08407ff09b1c208cc2f8aa",

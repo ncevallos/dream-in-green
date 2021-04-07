@@ -17,10 +17,13 @@ $theme-colors: (
   }
 }
 
+.navbar{
+  background-color: rgb(255, 255, 255);
+}
+
 .nav-bar-logo {
   width: 150px;
 }
-
 
 .nav-link {
   transition: color 0.1s, background-color 0.1s;

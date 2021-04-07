@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import TipsContainer from '../components/TipsContainer';
@@ -6,24 +6,22 @@ import { useAuth } from '../states/userState';
 import { buildAnswers } from '../utils';
 import firebase from 'firebase/app';
 import 'firebase/storage';
-import questions from '../assets/questions';
+import "firebase/database";
 
 const Questionnaire = () => {
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState({});
-  const [questions, setQuestions] = useState( () => {
-    console.log('hit');
-    firebase.storage().ref('questions/questions.js').getDownloadURL()
-    .then(questionsURL => {
-      console.log(typeof(questionsURL));
-      setQuestions(questionsURL);
-    }).catch(error => {
-      console.log('error questions ' + error);
-    })
-  });
+  const [questions, setQuestions] = useState([]);
   let history = useHistory();
   const { user, addScoreToDb } = useAuth();
 
+  //Grabs questions from firebase realtime database
+  useEffect(() => {
+    let database = firebase.database();
+    database.ref().on('value', (snapshot) => { 
+       setQuestions(snapshot.val());
+    }) 
+  }, []);
 
   const handleFinish = async () => {
     let total = 0;
@@ -37,13 +35,12 @@ const Questionnaire = () => {
     } catch (e) {
       console.log(e);
     }
-
     history.push(`/success/${total}`);
   };
 
   const handleSelect = (selectedIndex, e) => {
     if (e.target.classList.contains('next')) {
-      if (score[14] > -1) {
+      if (score[questions.length] > -1) {
         handleFinish();
       } else if (score[selectedIndex - 1] > -1) {
         setIndex(selectedIndex);
@@ -57,7 +54,7 @@ const Questionnaire = () => {
   };
 
   const htmlOfItems = questions.map((question, i) => {
-    return (
+    return (      
       <Carousel.Item key={i}>
         <h2 className='question-title'>{question.ques}</h2>
         {buildAnswers(question, i, score, setScore)}
