@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const InformationRow = () => {
   return (
@@ -10,12 +11,14 @@ const InformationRow = () => {
           Monitor your progress over time all in the app.
         </div>
       </div>
-      <div className='image-container'>
+        <div className='image-container'>
+              <Link to = "/Learn">
         <div className='image learn' />
         <div className='title'>Learn</div>
         <div className='text'>
-          Learn how to better yourself and lower your emissions.
+                      Learn how to better yourself and lower your emissions.
         </div>
+                  </Link>
       </div>
       <div className='image-container'>
         <div className='image improve' />
