@@ -65,7 +65,23 @@ const Profile = () => {
       });
   }, []);
 
-
+  const getUserAverage = (userInfo) => {
+    //Graph average logic
+    let graphArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+          for(let i = 0; i < graphArr.length; i++){
+            let counter = 0;
+            userInfo.forEach(index => {   
+              if(index.createdAt.toDate().getMonth() == i){
+                graphArr[i] += index.score;
+                counter++;
+              }
+            })
+            graphArr[i] = Math.round(graphArr[i] / counter);
+          }
+          console.log(graphArr);
+    // setChart(graphArr);
+    
+  }
 
   const setChart = (graph) => {
     const months = [
