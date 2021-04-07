@@ -61,26 +61,11 @@ const Profile = () => {
 
         setName(doc.data().firstName + ' ' + doc.data().lastName);
         setSchool(doc.data().school);
-        
+        console.log('latest version');
       });
   }, []);
 
-  const getUserAverage = (userInfo) => {
-    //Graph average logic
-    let graphArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
-          for(let i = 0; i < graphArr.length; i++){
-            let counter = 0;
-            userInfo.forEach(index => {   
-              if(index.createdAt.toDate().getMonth() == i){
-                graphArr[i] += index.score;
-                counter++;
-              }
-            })
-            graphArr[i] = Math.round(graphArr[i] / counter);
-          }
-    setChart(graphArr);
-    
-  }
+
 
   const setChart = (graph) => {
     const months = [
