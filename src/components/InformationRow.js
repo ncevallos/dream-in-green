@@ -20,12 +20,14 @@ const InformationRow = () => {
         </div>
                   </Link>
       </div>
-      <div className='image-container'>
+          <div className='image-container'>
+              <Link to='/questionnaire'>
         <div className='image improve' />
         <div className='title'>Improve</div>
         <div className='text'>
-          Improve your emissions by constantly using the app!
+                      Improve your emissions by constantly using the app!
         </div>
+                  </Link>
       </div>
     </div>
   );
