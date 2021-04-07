@@ -40,7 +40,7 @@ const Questionnaire = () => {
 
   const handleSelect = (selectedIndex, e) => {
     if (e.target.classList.contains('next')) {
-      if (score[questions.length] > -1) {
+      if (score[14] > -1) {
         handleFinish();
       } else if (score[selectedIndex - 1] > -1) {
         setIndex(selectedIndex);

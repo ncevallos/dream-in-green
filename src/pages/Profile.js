@@ -5,14 +5,13 @@ import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import { useAuth } from '../states/userState';
 import nicknames from '../assets/nicknames';
-
-
+import LineGraph from '../components/myLineGraph'
 
 const Profile = () => {
   const { logout, user, usersCollection, profilePic, uploadProfilePic } = useAuth();
   const redirect = useHistory();
 
-
+  let myChart;
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const [last, setLast] = useState('');
@@ -45,16 +44,15 @@ const Profile = () => {
           for (var i = 0; i < arr.length; i++) {
             sum = sum + arr[i].score;
           }
-          const const_avg = (sum / arr.length).toFixed(2);
-          setAvg((sum / arr.length).toFixed(2))
+          const const_avg = (sum / arr.length).toFixed(0);
+          setAvg((sum / arr.length).toFixed(0))
 
-          nicknames.forEach(function (nickname, index) {
-            if(const_avg >= nickname.bottom){
+          nicknames.forEach((nickname, index) => {
+            if(const_avg >= nickname.bottom && const_avg <= nickname.top){
               setCuteName(nicknames[index].name);
             }
           });
-            
-
+          getUserAverage(arr.reverse());
         } else {
           setScores(undefined);
           setLast('N/A');
@@ -63,9 +61,67 @@ const Profile = () => {
 
         setName(doc.data().firstName + ' ' + doc.data().lastName);
         setSchool(doc.data().school);
-        
+        console.log('latest version');
       });
   }, []);
+
+  const getUserAverage = (userInfo) => {
+    //Graph average logic
+    let graphArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+          for(let i = 0; i < graphArr.length; i++){
+            let counter = 0;
+            userInfo.forEach(index => {   
+              if(index.createdAt.toDate().getMonth() == i){
+                graphArr[i] += index.score;
+                counter++;
+              }
+            })
+            graphArr[i] = Math.round(graphArr[i] / counter);
+          }
+          console.log(graphArr);
+    // setChart(graphArr);
+    
+  }
+
+  const setChart = (graph) => {
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
+
+    const data = {
+      labels: months,
+      datasets: [{
+        label:'Monthly Average Score',
+        data: graph,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+      }]
+    }
+
+    // myChart = new Chart( {
+    //   type: 'line',
+    //   data: data,
+    //   options: {
+    //     scales: {
+    //       x: {
+    //         beginAtZero: true
+    //       }
+    //     }
+    //   }
+    // });
+  }
+
 
   const month = [
     'January',
@@ -84,7 +140,7 @@ const Profile = () => {
 
   const htmlOfScores =
     scores !== null && scores !== undefined
-      ? scores.slice(0, 9).map((score, i) => {
+      ? scores.slice(0, 5).map((score, i) => {
           return (
             <tr key={i}>
               <td>{scores.length - i}</td>

@@ -58,6 +58,7 @@ export function UserProvider({ children }) {
         score,
         createdAt,
       }),
+      average: 100
     });
   }
 
