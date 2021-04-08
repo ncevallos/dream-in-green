@@ -11,13 +11,13 @@ const Profile = () => {
   const { logout, user, usersCollection, profilePic, uploadProfilePic } = useAuth();
   const redirect = useHistory();
 
-  let myChart;
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const [last, setLast] = useState('');
   const [avg, setAvg] = useState(0);
   const [scores, setScores] = useState(null);
   const [cuteName, setCuteName] = useState('');
+  const [data, setData] = useState([]);
 
   function handleLogOut() {
     logout();
@@ -53,6 +53,7 @@ const Profile = () => {
             }
           });
           getUserAverage(arr.reverse());
+
         } else {
           setScores(undefined);
           setLast('N/A');
@@ -61,7 +62,6 @@ const Profile = () => {
 
         setName(doc.data().firstName + ' ' + doc.data().lastName);
         setSchool(doc.data().school);
-        console.log('latest version');
       });
   }, []);
 
@@ -78,48 +78,8 @@ const Profile = () => {
             })
             graphArr[i] = Math.round(graphArr[i] / counter);
           }
-          console.log(graphArr);
-    // setChart(graphArr);
+     setData(graphArr);
     
-  }
-
-  const setChart = (graph) => {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
-
-    const data = {
-      labels: months,
-      datasets: [{
-        label:'Monthly Average Score',
-        data: graph,
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-      }]
-    }
-
-    // myChart = new Chart( {
-    //   type: 'line',
-    //   data: data,
-    //   options: {
-    //     scales: {
-    //       x: {
-    //         beginAtZero: true
-    //       }
-    //     }
-    //   }
-    // });
   }
 
 
@@ -223,6 +183,7 @@ const Profile = () => {
             )}
             {scores === undefined && <h1>No scores</h1>}
           </Card>
+          <LineGraph data={data} />
         </div>
       </div>
     </div>
