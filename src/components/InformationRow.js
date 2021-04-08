@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 const InformationRow = () => {
   return (
     <div className='row-container home-row'>
-      <div className='image-container'>
+          <div className='image-container'>
+              <Link to='/profile'>
         <div className='image monitor' />
         <div className='title'>Monitor</div>
         <div className='text'>
-          Monitor your progress over time all in the app.
+                      Monitor your progress over time all in the app.
         </div>
+                  </Link>
       </div>
         <div className='image-container'>
               <Link to = "/Learn">
