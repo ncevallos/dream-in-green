@@ -100,7 +100,7 @@ const Profile = () => {
 
   const htmlOfScores =
     scores !== null && scores !== undefined
-      ? scores.slice(0, 5).map((score, i) => {
+      ? scores.slice(0, 8).map((score, i) => {
           return (
             <tr key={i}>
               <td>{scores.length - i}</td>
