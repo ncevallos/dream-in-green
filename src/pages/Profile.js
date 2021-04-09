@@ -3,7 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
-import '../styles/profile.css'
 import { useAuth } from '../states/userState';
 import nicknames from '../assets/nicknames';
 import LineGraph from '../components/myLineGraph'
@@ -80,11 +79,10 @@ const Profile = () => {
             graphArr[i] = Math.round(graphArr[i] / counter);
           }
      setData(graphArr);
-    
   }
 
   const handleUpload = () => {
-    fileUpload.current.click()
+    fileUpload.current.click();
   }
 
 
@@ -132,24 +130,20 @@ const Profile = () => {
               roundedCircle
             />
             </div>
-            <div>
-              <input 
-                id="inputFile"
-                type='file'
-                className='mt-2 mb-3 text-primary'
-                onChange={uploadProfilePic}
-                ref={fileUpload}
-                style={{ opacity: '0' }}
-              />
-              <button
-                id="uploadBttn"
-                type='button'
-                className='btn btn-primary py-2 px-5 mb-3'
-                onClick={() => handleUpload()}
-              >
+            <input 
+              type='file'
+              className='mt-2 mb-3 text-primary'
+              ref={fileUpload}
+              onChange={uploadProfilePic}
+              style={{ opacity: "0", width:'1px', height:'1px'}}
+            />
+            <button
+              type='button'
+              className='btn btn-primary py-2 px-5 mb-3'
+              onClick={handleUpload}
+            >
               Upload Picture
             </button>
-            </div>
             <h3 className='mt-2 mb-3 text-primary'>{name}</h3>
             <h5 className='mt-2 mb-3 text-primary'>Current Level: {cuteName}</h5>
             <button
