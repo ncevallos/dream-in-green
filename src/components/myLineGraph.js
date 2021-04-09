@@ -4,18 +4,18 @@ import {Line} from "react-chartjs-2";
 const myLineGraph = (props) => {
     const dataSet = {
         labels: [
-            'January',
-            'February',
-            'March',
-            'April',
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
             'May',
             'June',
             'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December',
+            'Aug',
+            'Sept',
+            'Oct',
+            'Nov',
+            'Dec',
           ],
         datasets: [
           {
@@ -44,7 +44,7 @@ const myLineGraph = (props) => {
 
       const options = {
         scales: {
-          yXes: [{
+          y: [{
             ticks: {
               min: 0,
               max: 150,
