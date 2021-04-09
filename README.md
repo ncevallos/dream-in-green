@@ -22,6 +22,6 @@ Builds the app for production.
 - [Netlify](https://www.netlify.com/)
 - [emailJS](https://www.emailjs.com/)
 - [browser-image-compression](https://www.npmjs.com/package/browser-image-compression)
-
+- [react-chartjs-2] (https://www.npmjs.com/package/react-chartjs-2)
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
