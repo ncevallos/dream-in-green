@@ -41,9 +41,21 @@ const myLineGraph = (props) => {
           }
         ],
       };
+
+      const options = {
+        scales: {
+          yXes: [{
+            ticks: {
+              min: 0,
+              max: 150,
+              stepSize: 20
+            }
+          }]
+        }
+      }
         return (
             <div id="myChart">
-                <Line data={dataSet} />
+                <Line data={dataSet} option={options} />
             </div>
         )
 }
